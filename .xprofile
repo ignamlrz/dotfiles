@@ -1,0 +1,16 @@
+# Env vars
+export PATH=$HOME/.local/bin:$PATH
+
+## ---------------- Ini programs ----------------
+# XORG compositor
+picom &
+# Keyboard Language
+setxkbmap es &
+# Activate Natural Scrolling for TouchPad -> params [device] [prop] [value]
+variable=$(xinput list | grep TouchPad | grep -oP '(?<=id=)[0-9]+')
+xinput set-prop $variable "libinput Natural Scrolling Enabled" 1
+# wallpaper
+feh --bg-scale $HOME/photos/wallpaper/wallpaper1.png & 
+# USB mounter
+udiskie -t &
+
